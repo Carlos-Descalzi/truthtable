@@ -1,5 +1,6 @@
 # truthtable
-build and show a truth table from a boolean expression
+build and show a truth table from a boolean expression.
+
 Just a piece of old code I found in my hard drive and I wanted to preserve.
 
 ## Example:
@@ -27,3 +28,8 @@ a | b | c | d | a & b | a & c | ( a & b ) | ( a & c ) | ( ( a & b ) | ( a & c ) 
 1 | 1 | 1 | 0 |     1 |     1 |                     1 |                             1 |                                     1
 1 | 1 | 1 | 1 |     1 |     1 |                     1 |                             0 |                                     0
 ```
+Operators:
+- &: and
+- |: or
+- ^: xor
+- ~: not
