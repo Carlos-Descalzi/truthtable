@@ -1,7 +1,7 @@
 # truthtable
 build and show a truth table from a boolean expression.
 
-Just a piece of old code I found in my hard drive and I wanted to preserve.
+Just a piece of old code I had in my hard drive and I wanted to preserve with some reaconditioning.
 
 ## Example:
 ```bash
@@ -33,3 +33,9 @@ Operators:
 - |: or
 - ^: xor
 - ~: not
+
+## Setup
+```bash
+python3 setup.py install [--prefix=base folder]
+```
+

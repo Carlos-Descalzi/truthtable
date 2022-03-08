@@ -1,4 +1,4 @@
-from boolexpr import BoolExprVisitor, BoolExprParser, BoolExprLexer
+from .boolexpr import BoolExprVisitor, BoolExprParser, BoolExprLexer
 from abc import ABCMeta, abstractmethod, abstractproperty
 import antlr4
 import sys
@@ -221,7 +221,11 @@ def get_tree(input_stream):
     return parser.boolExpr()
 
 
-if __name__ == "__main__":
+def main():
+    if len(sys.argv) != 2:
+        print('Usage: truthtable "boolean expression"')
+        sys.exit(1)
+
     input_stream = antlr4.InputStream(sys.argv[1])
     visitor = Visitor()
     root, variables_list = visitor.visit_all(get_tree(input_stream))
@@ -247,3 +251,7 @@ if __name__ == "__main__":
 
         # ... and print the values
         print(" | ".join([fmt_val(len(str(v)), v.value) for v in all_items]))
+
+
+if __name__ == "__main__":
+    main()

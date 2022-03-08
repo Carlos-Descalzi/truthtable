@@ -5,4 +5,4 @@ if [ ! -f antlr4.jar ]; then
     exit 1
 fi
 
-java -jar antlr4.jar BoolExpr.g -o boolexpr -visitor  -Dlanguage=Python3
+java -jar antlr4.jar BoolExpr.g -o truthtable/boolexpr -visitor  -Dlanguage=Python3
