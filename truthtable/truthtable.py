@@ -221,9 +221,34 @@ def get_tree(input_stream):
     return parser.boolExpr()
 
 
+def print_usage():
+    print("Usage:")
+    print('  truthtable [-f] "boolean expression"')
+    print("  truthtable -h: Shows this help message")
+    print()
+    print("Parameter -f filters out rows where final expression is 0")
+    print()
+    print("Boolean operators:")
+    print("  |: or")
+    print("  &: and")
+    print("  ^: xor")
+    print("  ~: not")
+
+
 def main():
-    if len(sys.argv) != 2:
-        print('Usage: truthtable "boolean expression"')
+
+    if "-h" in sys.argv:
+        print_usage()
+        sys.exit(1)
+
+    try:
+        sys.argv.remove("-f")
+        filter_zeros = True
+    except:
+        filter_zeros = False
+
+    if len(sys.argv) < 2:
+        print_usage()
         sys.exit(1)
 
     input_stream = antlr4.InputStream(sys.argv[1])
@@ -250,7 +275,8 @@ def main():
             var.value = (i & (1 << (len(variables) - n - 1))) != 0
 
         # ... and print the values
-        print(" | ".join([fmt_val(len(str(v)), v.value) for v in all_items]))
+        if not filter_zeros or root.value:
+            print(" | ".join([fmt_val(len(str(v)), v.value) for v in all_items]))
 
 
 if __name__ == "__main__":
