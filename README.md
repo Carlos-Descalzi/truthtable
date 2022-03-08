@@ -5,7 +5,7 @@ Just a piece of old code I had in my hard drive and I wanted to preserve with so
 
 ## Example:
 ```bash
-python3 truthtable.py "(((a & b) | (a & c)) ^ d) & b"
+truthtable "(((a & b) | (a & c)) ^ d) & b"
 ```
 Will produce:
 ```
