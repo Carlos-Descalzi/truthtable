@@ -4,6 +4,9 @@ import os
 with open("README.md", "r") as f:
     long_description = f.read()
 
+with open("requirements.txt", "r") as f:
+    requirements = f.readlines()
+
 setuptools.setup(
     name="truthtable",
     version="0.0.1",
@@ -15,7 +18,7 @@ setuptools.setup(
     url="https://github.com/Carlos-Descalzi/truthtable",
     packages=setuptools.find_packages(),
     entry_points={"console_scripts": ["truthtable = truthtable.truthtable:main"]},
-    install_requires=[],
+    install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License (GPL)",
